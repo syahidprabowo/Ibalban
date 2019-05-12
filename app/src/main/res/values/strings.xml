@@ -10,4 +10,8 @@
     <string name="submit">SUBMIT</string>
     <string name="launch_place_picker">Launch Place Picker</string>
     <string name="logo_ibalban">Logo Ibalban</string>
+    <string name="account_setting">Account Setting</string>
+    <string name="logout">Logout</string>
+    <string name="daftar_agen">Daftar Agen</string>
+    <string name="info_akun">Info Akun</string>
 </resources>

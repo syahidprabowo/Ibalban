@@ -6,7 +6,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
 public class SplashActivity extends AppCompatActivity {
-    private int waktu_loading=4000;
+    private int waktu_loading=1000;
 
     //4000=4 detik
 
