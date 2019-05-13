@@ -1,14 +1,20 @@
 package com.example.ibalban;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,13 +32,14 @@ public class InfoAgenActivity extends AppCompatActivity {
     TextView provTV;
 
     String Semail = null;
+    String emaill = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_agen);
-
         mDatabase = FirebaseDatabase.getInstance().getReference();
+
 
         // Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
@@ -49,7 +56,7 @@ public class InfoAgenActivity extends AppCompatActivity {
             Semail = acct.getEmail();
         }
 
-        String emaill = Semail.replace(".", ",");
+        emaill = Semail.replace(".", ",");
 
         nikTV = findViewById(R.id.editNIK);
         namaTV = findViewById(R.id.editNama);
@@ -75,6 +82,13 @@ public class InfoAgenActivity extends AppCompatActivity {
             public void onCancelled(DatabaseError databaseError) {
                 //Digunakan untuk menangani kejadian Error
                 Log.e("MyListData", "Error: ", databaseError.toException());
+            }
+        });
+
+        findViewById(R.id.btnUbahAgen).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(InfoAgenActivity.this, EditAgenActivity.class));
             }
         });
     }

@@ -27,14 +27,14 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         // untuk membuat clickable teks dan mengarahkan ke activity lain
-        final TextView txtView = this.findViewById(R.id.teks_reg);
-        txtView.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick (View v){
-                LoginActivity.this.startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
-            }
-        });
+//        final TextView txtView = this.findViewById(R.id.teks_reg);
+//        txtView.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick (View v){
+//                LoginActivity.this.startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+//            }
+//        });
 
         //Initializing Views
         signInButton = findViewById(R.id.sign_in_button);

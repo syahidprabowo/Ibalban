@@ -1,6 +1,9 @@
 package com.example.ibalban;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
@@ -112,10 +115,38 @@ public class DaftarAgenActivity extends AppCompatActivity {
                  .addOnSuccessListener(this, new OnSuccessListener<Void>() {
                      @Override
                      public void onSuccess(Void aVoid) {
+                         inNIK.setText("");
+                         inNama.setText("");
+                         inAlamat.setText("");
+                         inKec.setText("");
+                         inKabKota.setText("");
+                         inProv.setText("");
 
-                         Toast.makeText(DaftarAgenActivity.this
-                                        , "Berhasil Menjadi Agen"
-                                        ,Toast.LENGTH_SHORT).show();
+                         AlertDialog.Builder builder1 = new AlertDialog.Builder(DaftarAgenActivity.this);
+                         builder1.setMessage("Berhasil menjadi Agen !")
+                                 .setCancelable(false)
+                                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                     public void onClick(DialogInterface dialog, int id) {
+                                         //do things
+                                     }
+                                 });
+                         AlertDialog alert1 = builder1.create();
+                         alert1.show();
+
+                         AlertDialog.Builder builder = new AlertDialog.Builder(DaftarAgenActivity.this);
+                         builder.setMessage("Agen dapat menambahkan lokasi tambal ban dengan cara : \n " +
+                                 "Menahan beberapa detik lokasi yang akan ditambahkan pada Map")
+                                 .setCancelable(false)
+                                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                     public void onClick(DialogInterface dialog, int id) {
+                                         //do things
+                                     }
+                                 });
+                         AlertDialog alert = builder.create();
+                         alert.show();
+
+                         Intent intent = new Intent(DaftarAgenActivity.this, MapsActivity.class);
+                         startActivity(intent);
                      }
                  });
 
